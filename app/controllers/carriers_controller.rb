@@ -10,7 +10,7 @@ class CarriersController < ApplicationController
 
   def create
     @carrier = Carrier.new(carrier_params)
-    if @carrier.save
+    if @carrier.save()
       flash[:notice] = "Transportadora cadastrada com sucesso."
       redirect_to @carrier
     else

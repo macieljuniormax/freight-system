@@ -1,5 +1,15 @@
 <h1>Nova Transportadora</h1>
 
+<div>
+  <% if @carrier.errors.any? %>
+    <ul>
+    <% @carrier.errors.full_messages.each do |mensagem| %>
+      <li> <%= mensagem %>. </li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
+
 <%= form_with(model: @carrier) do |f| %>
   <div>
     <%= f.label :brand_name %>

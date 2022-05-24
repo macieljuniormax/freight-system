@@ -19,7 +19,6 @@ describe 'Administrador cadastra uma transportadora' do
     expect(page).to have_field('Endereço') 
     expect(page).to have_button('Finalizar Cadastro') 
   end
-  
 
   it 'com sucesso' do
     # Arrange
@@ -37,11 +36,32 @@ describe 'Administrador cadastra uma transportadora' do
     click_on 'Finalizar Cadastro'
 
     # Assert
+    expect(page).to have_content('Transportadora cadastrada com sucesso.')
     expect(page).to have_content('Next Transporte') 
     expect(page).to have_content('Razão Social: Transportes Next LTDA') 
     expect(page).to have_content('Domínio de E-mail: nexttransport.com.br') 
     expect(page).to have_content('CNPJ: 12.123.123/0001-12') 
     expect(page).to have_content('Endereço: Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG')
-    expect(page).to have_content('Transportadora cadastrada com sucesso.')
+  end
+
+  it 'com dados incompletos' do
+    # Arrange
+
+    # Act
+    visit root_path
+    within('nav') do
+      click_on 'Cadastrar Transportadora'
+    end
+    fill_in 'Nome Fantasia',	with: '' 
+    fill_in 'Razão Social',	with: 'Transportes Next LTDA' 
+    fill_in 'Domínio de E-mail',	with: 'nexttransport.com.br' 
+    fill_in 'CNPJ',	with: '' 
+    fill_in 'Endereço',	with: 'Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG' 
+    click_on 'Finalizar Cadastro'
+
+    # Assert
+    expect(page).to have_content('Transportadora não cadastrada.')
+    expect(page).to have_content('Nome Fantasia não pode ficar em branco')
+    expect(page).to have_content('CNPJ não pode ficar em branco')
   end
 end
