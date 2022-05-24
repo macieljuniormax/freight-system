@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FreightSystem</title>
+    <title>Freight System</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +10,17 @@
   </head>
 
   <body>
+  <header>
+    <h1>MaxFrete</h1>
+    <nav>
+    <%= link_to 'Cadastrar Transportadora', new_carrier_path %>
+    </nav>
+  </header>
+  <main>
+  </main>
+    <div>
+      <%= flash[:notice] %>
+    </div>
     <%= yield %>
   </body>
 </html>
