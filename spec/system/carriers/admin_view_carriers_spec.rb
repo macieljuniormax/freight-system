@@ -34,8 +34,10 @@ describe "Administrador vê transportadoras cadastradas" do
     # Assert
     expect(page).to have_content('Next Transporte')
     expect(page).to have_content('Transportes Next LTDA')
+    expect(page).to have_content('active')
     expect(page).to have_content('Trans Parente')
     expect(page).to have_content('Trans Parente Brasil')
+    expect(page).to have_content('active')
   end
 
   it 'sem sucesso' do
