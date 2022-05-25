@@ -12,7 +12,7 @@
       <tbody>
         <% @carriers.each do |carrier| %>
           <tr>
-            <td> <%= carrier.brand_name %> </td>
+            <td> <%= link_to carrier.brand_name, carrier_path(carrier.id) %> </td>
             <td> <%= carrier.corporate_name %> </td>
             <td> <%= carrier.status %> </td>
           </tr>
