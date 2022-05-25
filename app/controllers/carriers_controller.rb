@@ -1,4 +1,9 @@
 class CarriersController < ApplicationController
+  
+  def index
+    @carriers = Carrier.all
+  end
+
   def new
     @carrier = Carrier.new
   end
