@@ -1,4 +1,5 @@
 class CarriersController < ApplicationController
+  before_action :authenticate_user!
   
   def index
     @carriers = Carrier.all

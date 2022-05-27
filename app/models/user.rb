@@ -12,6 +12,7 @@ class User < ApplicationRecord
     domain = self.email.split('@')
     carrier = Carrier.find_by(email_domain: domain[1])
 
+  # verifica se o e-mail é de um usuário ou um administrador
    if carrier
     self.carrier = carrier
    elsif domain[1] == 'sistemadefrete.com.br'

@@ -3,9 +3,11 @@ require 'rails_helper'
 describe 'Administrador cadastra uma transportadora' do
   it "a partir da tela inicial" do
     # Arrange
-  
+    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@sistemadefrete.com.br', password: 'password')
+    
     
     # Act
+    login_as(user)
     visit root_path
     within('nav') do
       click_on 'Cadastrar Transportadora'
@@ -22,8 +24,10 @@ describe 'Administrador cadastra uma transportadora' do
 
   it 'com sucesso' do
     # Arrange
+    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@sistemadefrete.com.br', password: 'password')
 
     # Act
+    login_as(user)
     visit root_path
     within('nav') do
       click_on 'Cadastrar Transportadora'
@@ -46,8 +50,10 @@ describe 'Administrador cadastra uma transportadora' do
 
   it 'com dados incompletos' do
     # Arrange
-
+    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@sistemadefrete.com.br', password: 'password')
+   
     # Act
+    login_as(user)
     visit root_path
     within('nav') do
       click_on 'Cadastrar Transportadora'

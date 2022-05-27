@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Usuário se autentica' do
   it 'como admin com sucesso' do
     # Arrange 
-    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@sistemadefrete.com.br', password: 'password', )
+    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@sistemadefrete.com.br', password: 'password')
 
     # Act
     visit root_path

@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'Usuário vê detalhes da transportadora' do
   it 'a partir da tela inicial' do
     # Arrage
+    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@sistemadefrete.com.br', password: 'password')
     Carrier.create!(corporate_name: 'Transportes Next LTDA', 
       brand_name: 'Next Transporte', 
       registration_number: '12.123.123/0001-01', 
@@ -10,6 +11,7 @@ describe 'Usuário vê detalhes da transportadora' do
       email_domain: 'nexttransport.com.br')
 
     # Act 
+    login_as(user)
     visit root_path
     within('nav') do
       click_on 'Transportadoras'
@@ -27,6 +29,7 @@ describe 'Usuário vê detalhes da transportadora' do
 
   it 'e volta para transportadoras cadastradas' do
     # Arrage
+    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@sistemadefrete.com.br', password: 'password')
     Carrier.create!(corporate_name: 'Transportes Next LTDA', 
       brand_name: 'Next Transporte', 
       registration_number: '12.123.123/0001-01', 
@@ -34,6 +37,7 @@ describe 'Usuário vê detalhes da transportadora' do
       email_domain: 'nexttransport.com.br')
 
     # Act 
+    login_as(user)
     visit root_path
     within('nav') do
       click_on 'Transportadoras'
