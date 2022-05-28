@@ -1,6 +1,17 @@
 require 'rails_helper'
 
 describe 'Usuário cadastra um veículo' do
+  it 'se estiver autenticado' do
+    # Arrange
+    
+    # Act
+    visit root_path
+    click_on 'Veículos'
+
+    #Assert
+    expect(current_path).to eq new_user_session_path
+  end
+  
   it "a partir da tela inicial" do
     # Arrange
     Carrier.create!(corporate_name: 'Transportes Next LTDA', 
