@@ -13,9 +13,7 @@ describe 'Usuário vê detalhes da transportadora' do
     # Act 
     login_as(user)
     visit root_path
-    within('nav') do
-      click_on 'Transportadoras'
-    end
+    click_on 'Transportadoras'
     click_on 'Next Transporte'
     
     # Assert
@@ -39,9 +37,7 @@ describe 'Usuário vê detalhes da transportadora' do
     # Act 
     login_as(user)
     visit root_path
-    within('nav') do
-      click_on 'Transportadoras'
-    end
+    click_on 'Transportadoras'
     click_on 'Next Transporte'
     click_on 'Voltar'
     

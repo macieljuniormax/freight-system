@@ -6,9 +6,7 @@ describe "Administrador vê transportadoras cadastradas" do
     
     # Act
     visit root_path
-    within('nav') do
-      click_on 'Transportadoras'
-    end
+    click_on 'Transportadoras'
 
     #Assert
     expect(current_path).to eq new_user_session_path
@@ -21,9 +19,7 @@ describe "Administrador vê transportadoras cadastradas" do
     # Act
     login_as(user)
     visit root_path
-    within('nav') do
-      click_on 'Transportadoras'
-    end
+    click_on 'Transportadoras'
 
     #Assert
     expect(current_path).to eq carriers_path

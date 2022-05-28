@@ -1,24 +1,24 @@
 <h1>Transportadoras</h1>
 
-  <% if @carriers.any? %>
-    <table>
-      <thead>
+<% if @carriers.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Transportadora</th>
+        <th>Razão Social</th>
+        <th>Status</th>
+      <tr>
+    </thead>
+    <tbody>
+      <% @carriers.each do |carrier| %>
         <tr>
-          <th>Transportadora</th>
-          <th>Razão Social</th>
-          <th>Status</th>
-        <tr>
-      </thead>
-      <tbody>
-        <% @carriers.each do |carrier| %>
-          <tr>
-            <td> <%= link_to carrier.brand_name, carrier_path(carrier.id) %> </td>
-            <td> <%= carrier.corporate_name %> </td>
-            <td> <%= carrier.status %> </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% else %>  
-    <p>Não existem transportadoras cadastradas.</p>
-  <% end %>
+          <td> <%= link_to carrier.brand_name, carrier_path(carrier.id) %> </td>
+          <td> <%= carrier.corporate_name %> </td>
+          <td> <%= carrier.status %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>  
+  <p>Não existem transportadoras cadastradas.</p>
+<% end %>
