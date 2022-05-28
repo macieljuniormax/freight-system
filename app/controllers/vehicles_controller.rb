@@ -11,6 +11,7 @@ class VehiclesController < ApplicationController
 
   def create
     @vehicle = Vehicle.new(vehicle_params)
+    @vehicle.carrier = current_user.carrier
     if @vehicle.save()
       flash[:notice] = "Veículo cadastrado com sucesso."
       redirect_to vehicles_path

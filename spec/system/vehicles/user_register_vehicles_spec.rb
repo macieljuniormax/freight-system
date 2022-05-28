@@ -21,7 +21,6 @@ describe 'Usuário cadastra um veículo' do
       email_domain: 'nexttransport.com.br')
     user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@nexttransport.com.br', password: 'password')
     
-    
     # Act
     login_as(user)
     visit root_path
@@ -39,7 +38,7 @@ describe 'Usuário cadastra um veículo' do
 
   it 'com sucesso' do
     # Arrange
-    Carrier.create!(corporate_name: 'Transportes Next LTDA', 
+    carrier = Carrier.create!(corporate_name: 'Transportes Next LTDA', 
       brand_name: 'Next Transporte', 
       registration_number: '12.123.123/0001-01', 
       address: 'Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG', 
@@ -70,12 +69,12 @@ describe 'Usuário cadastra um veículo' do
 
   it 'com dados incompletos e falha' do
     # Arrange
-    Carrier.create!(corporate_name: 'Transportes Next LTDA', 
+    carrier = Carrier.create!(corporate_name: 'Transportes Next LTDA', 
       brand_name: 'Next Transporte', 
       registration_number: '12.123.123/0001-01', 
       address: 'Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG', 
       email_domain: 'nexttransport.com.br')
-    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@nexttransport.com.br', password: 'password')
+    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@nexttransport.com.br', password: 'password', carrier: carrier)
    
     # Act
     login_as(user)

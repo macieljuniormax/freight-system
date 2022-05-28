@@ -1,0 +1,32 @@
+<h1>Tabela de Preços</h1>
+
+
+<% if @prices.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Volume (m³)</th>
+        <th>Peso</th>
+        <th>Valor por Km</th>
+      <tr>
+    </thead>
+    <tbody>
+      <% @prices.each do |carrier| %>
+        <tr>
+          <td> <%= carrier.min_volume %> a <%= carrier.max_volume %> m³</td>
+          <td> <%= carrier.min_weight %> a <%= carrier.max_weight %> Kg</td>
+          <td> R$ <%= carrier.price_km %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>  
+  <p>Não existem preços cadastradas.</p>
+<% end %>
+
+<div>
+  <%= link_to 'Voltar', root_path %>
+</div>
+<div>
+  <%= link_to 'Cadastrar Preço', new_price_path %>
+</div>

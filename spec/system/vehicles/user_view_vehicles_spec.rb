@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Usuário vê transportadoras cadastradas" do
+describe "Usuário vê veículos cadastrados" do
   it 'se estiver autenticado' do
     # Arrange
     
@@ -14,13 +14,12 @@ describe "Usuário vê transportadoras cadastradas" do
 
   it 'a partir do menu' do
     # Arrange
-    Carrier.create!(corporate_name: 'Transportes Next LTDA', 
+    carrier = Carrier.create!(corporate_name: 'Transportes Next LTDA', 
       brand_name: 'Next Transporte', 
       registration_number: '12.123.123/0001-01', 
       address: 'Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG', 
       email_domain: 'nexttransport.com.br')
-    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@nexttransport.com.br', password: 'password')
-    
+    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@nexttransport.com.br', password: 'password', carrier: carrier)
     
     # Act
     login_as(user)
@@ -33,13 +32,13 @@ describe "Usuário vê transportadoras cadastradas" do
 
   it 'com sucesso' do
     # Arrage
-    Carrier.create!(corporate_name: 'Transportes Next LTDA', 
+    carrier = Carrier.create!(corporate_name: 'Transportes Next LTDA', 
       brand_name: 'Next Transporte', 
       registration_number: '12.123.123/0001-01', 
       address: 'Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG', 
       email_domain: 'nexttransport.com.br')
-    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@nexttransport.com.br', password: 'password')
-    veiculo = Vehicle.create!(plate: 'SKD-2525', brand_name: 'Volvo', model: 'S60', year_manufacture: 2022, capacity: 445)
+    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@nexttransport.com.br', password: 'password', carrier: carrier)
+    veiculo = Vehicle.create!(plate: 'SKD-2525', brand_name: 'Volvo', model: 'S60', year_manufacture: 2022, capacity: 445, carrier: carrier)
     
     # Act 
     login_as(user)
@@ -57,12 +56,12 @@ describe "Usuário vê transportadoras cadastradas" do
 
   it 'sem sucesso' do
     # Arrage
-    Carrier.create!(corporate_name: 'Transportes Next LTDA', 
+    carrier = Carrier.create!(corporate_name: 'Transportes Next LTDA', 
       brand_name: 'Next Transporte', 
       registration_number: '12.123.123/0001-01', 
       address: 'Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG', 
       email_domain: 'nexttransport.com.br')
-    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@nexttransport.com.br', password: 'password')
+    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@nexttransport.com.br', password: 'password', carrier: carrier)
     
     # Act 
     login_as(user)
@@ -71,5 +70,24 @@ describe "Usuário vê transportadoras cadastradas" do
 
     # Assert
     expect(page).to have_content('Não existem veículos cadastrados.')
+  end
+
+  it 'e volta para o menu' do
+    # Arrage
+    carrier = Carrier.create!(corporate_name: 'Transportes Next LTDA', 
+      brand_name: 'Next Transporte', 
+      registration_number: '12.123.123/0001-01', 
+      address: 'Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG', 
+      email_domain: 'nexttransport.com.br')
+    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@nexttransport.com.br', password: 'password', carrier: carrier)
+
+    # Act 
+    login_as(user)
+    visit root_path
+    click_on 'Veículos'
+    click_on 'Voltar'
+    
+    # Assert
+    expect(current_path).to eq root_path
   end
 end

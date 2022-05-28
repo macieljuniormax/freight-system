@@ -1,0 +1,37 @@
+<h1>Nova Faixa de Valores</h1>
+
+<div>
+  <% if @price.errors.any? %>
+    <ul>
+    <% @price.errors.full_messages.each do |mensagem| %>
+      <li> <%= mensagem %>. </li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<%= form_with(model: @price) do |f| %>
+  <div>
+    <%= f.label :min_volume %>
+    <%= f.number_field :min_volume %>
+  </div>
+  <div>
+    <%= f.label :max_volume %>
+    <%= f.number_field :max_volume %>
+  </div>
+  <div>
+    <%= f.label :min_weight %>
+    <%= f.number_field :min_weight %>
+  </div>
+  <div>
+    <%= f.label :max_weight %>
+    <%= f.number_field :max_weight %>
+  </div>
+  <div>
+    <%= f.label :price_km %>
+    <%= f.number_field :price_km %>
+  </div>
+  <div>
+    <%= f.submit 'Finalizar Cadastro' %>
+  </div>
+<% end %>
