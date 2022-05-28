@@ -39,7 +39,7 @@ describe "Usuário vê transportadoras cadastradas" do
       address: 'Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG', 
       email_domain: 'nexttransport.com.br')
     user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@nexttransport.com.br', password: 'password')
-    Vehicle.create!(plate: 'SKD-2525', brand_name: 'Volvo', model: 'S60', year_manufacture: 2022, capacity: 445)
+    veiculo = Vehicle.create!(plate: 'SKD-2525', brand_name: 'Volvo', model: 'S60', year_manufacture: 2022, capacity: 445)
     
     # Act 
     login_as(user)
@@ -52,6 +52,7 @@ describe "Usuário vê transportadoras cadastradas" do
     expect(page).to have_content('S60')
     expect(page).to have_content('2022')
     expect(page).to have_content('445')
+    expect(veiculo.carrier.brand_name).to eq 'Next Transporte'
   end
 
   it 'sem sucesso' do
