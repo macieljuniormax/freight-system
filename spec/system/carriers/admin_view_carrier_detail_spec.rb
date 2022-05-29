@@ -1,6 +1,17 @@
 require 'rails_helper'
 
 describe 'Usuário vê detalhes da transportadora' do
+  it 'se estiver autenticado' do
+    # Arrange
+    
+    # Act
+    visit root_path
+    click_on 'Transportadoras'
+
+    #Assert
+    expect(current_path).to eq new_user_session_path
+  end
+  
   it 'a partir da tela inicial' do
     # Arrage
     user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@sistemadefrete.com.br', password: 'password')

@@ -13,6 +13,7 @@
         <tr>
           <td> <%= deadline.min_distance %> a <%= deadline.max_distance %> Km</td>
           <td> <%= deadline.deadline_days %> dias</td>
+          <td> <%= link_to 'Editar',  edit_deadline_path(deadline.id) %> </td>
         </tr>
       <% end %>
     </tbody>

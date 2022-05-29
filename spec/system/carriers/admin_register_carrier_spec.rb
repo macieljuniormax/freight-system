@@ -1,6 +1,17 @@
 require 'rails_helper'
 
 describe 'Administrador cadastra uma transportadora' do
+  it 'se estiver autenticado' do
+    # Arrange
+    
+    # Act
+    visit root_path
+    click_on 'Transportadoras'
+
+    #Assert
+    expect(current_path).to eq new_user_session_path
+  end
+  
   it "a partir da tela inicial" do
     # Arrange
     user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@sistemadefrete.com.br', password: 'password')
@@ -19,7 +30,7 @@ describe 'Administrador cadastra uma transportadora' do
     expect(page).to have_field('Domínio de E-mail') 
     expect(page).to have_field('CNPJ') 
     expect(page).to have_field('Endereço') 
-    expect(page).to have_button('Finalizar Cadastro') 
+    expect(page).to have_button('Finalizar') 
   end
 
   it 'com sucesso' do
@@ -37,7 +48,7 @@ describe 'Administrador cadastra uma transportadora' do
     fill_in 'Domínio de E-mail',	with: 'nexttransport.com.br' 
     fill_in 'CNPJ',	with: '12.123.123/0001-12' 
     fill_in 'Endereço',	with: 'Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG' 
-    click_on 'Finalizar Cadastro'
+    click_on 'Finalizar'
 
     # Assert
     expect(page).to have_content('Transportadora cadastrada com sucesso.')
@@ -63,7 +74,7 @@ describe 'Administrador cadastra uma transportadora' do
     fill_in 'Domínio de E-mail',	with: 'nexttransport.com.br' 
     fill_in 'CNPJ',	with: '' 
     fill_in 'Endereço',	with: 'Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG' 
-    click_on 'Finalizar Cadastro'
+    click_on 'Finalizar'
 
     # Assert
     expect(page).to have_content('Transportadora não cadastrada.')

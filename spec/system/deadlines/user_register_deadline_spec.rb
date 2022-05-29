@@ -19,7 +19,7 @@ describe 'Usuário cadastra um prazo' do
       registration_number: '12.123.123/0001-01', 
       address: 'Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG', 
       email_domain: 'nexttransport.com.br')
-    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@nexttransport.com.br', password: 'password', carrier:carrier)
+    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@nexttransport.com.br', password: 'password')
     
     # Act
     login_as(user)
@@ -59,7 +59,7 @@ describe 'Usuário cadastra um prazo' do
     expect(page).to have_content('0 a 100 Km') 
     expect(page).to have_content('2 dias')
     deadline = Deadline.last
-    expect(deadline.carrier.brand_name).to eq  'Next Transporte'
+    expect(deadline.carrier.brand_name).to eq 'Next Transporte'
   end
 
   it "com dados incompletos e falha" do
