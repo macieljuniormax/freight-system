@@ -11,11 +11,11 @@
       <tr>
     </thead>
     <tbody>
-      <% @prices.each do |carrier| %>
+      <% @prices.each do |price| %>
         <tr>
-          <td> <%= carrier.min_volume %> a <%= carrier.max_volume %> m³</td>
-          <td> <%= carrier.min_weight %> a <%= carrier.max_weight %> Kg</td>
-          <td> R$ <%= carrier.price_km %> </td>
+          <td> <%= price.min_volume %> a <%= price.max_volume %> m³</td>
+          <td> <%= price.min_weight %> a <%= price.max_weight %> Kg</td>
+          <td> R$ <%= price.price_km %> </td>
         </tr>
       <% end %>
     </tbody>

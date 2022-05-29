@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Usuário cadastra um veículo' do
+describe 'Usuário cadastra uma faixa de preços' do
   it 'se estiver autenticado' do
     # Arrange
     

@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :carriers, only: [:index, :show, :new, :create]
   resources :vehicles, only: [:index, :new, :create]
   resources :prices, only: [:index, :new, :create]
-
+  resources :deadlines, only: [:index, :new, :create]
 end

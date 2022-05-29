@@ -1,0 +1,9 @@
+pt-BR:
+    activerecord:
+        models:
+            deadline: 'Prazo'
+        attributes:
+            deadline:
+                min_distance: 'Distância mínima'
+                max_distance: 'Distância máxima'
+                deadline_days: 'Prazo em dias'
