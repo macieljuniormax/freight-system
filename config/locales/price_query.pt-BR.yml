@@ -1,0 +1,11 @@
+pt-BR:
+    activerecord:
+        models:
+            price_query: 'Consulta de Preço'
+        attributes:
+            price_query:
+                height: 'Altura'
+                width: 'Largura'
+                length: 'Comprimento'
+                weight: 'Peso'
+                distance: 'Distância'

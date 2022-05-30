@@ -1,0 +1,29 @@
+<h1>Faça uma consulta</h1>
+
+<%= form_with(url: search_price_queries_path, method: :get) do |f| %>
+  <div>
+    <%= f.label :height, 'Altura' %>
+    <%= f.number_field :height %>
+  </div>
+  <div>
+    <%= f.label :width, 'Largura' %>
+    <%= f.number_field :width %>
+  </div>
+  <div>
+    <%= f.label :length, 'Comprimento' %>
+    <%= f.number_field :length %>
+  </div>
+  <div>
+    <%= f.label :weight, 'Peso' %>
+    <%= f.number_field :weight %>
+  </div>
+  <div>
+    <%= f.label :distance, 'Distância' %>
+    <%= f.number_field :distance %>
+  </div>
+           
+  <%= f.submit 'Buscar' %>
+<% end %>
+
+<h2>Consultas já realizadas</h2>
+

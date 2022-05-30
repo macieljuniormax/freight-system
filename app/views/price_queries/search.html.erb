@@ -1,0 +1,20 @@
+<h1>Resultados da busca</h1>
+
+ <table>
+    <thead>
+      <tr>
+        <th>Transportadora</th>
+        <th>Prazo</th>
+        <th>Taxa de Entrega</th>
+      <tr>
+    </thead>
+    <tbody>
+      <% @carriers.each do |carrier| %>
+        <tr>
+          <td> <%= carrier[:carrier].brand_name %> </td>
+          <td> <%= carrier[:deadline] %> dias</td>
+          <td>R$ <%= carrier[:price]%> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

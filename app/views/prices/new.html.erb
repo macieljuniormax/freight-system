@@ -13,23 +13,23 @@
 <%= form_with(model: @price) do |f| %>
   <div>
     <%= f.label :min_volume %>
-    <%= f.number_field :min_volume %>
+    <%= f.number_field :min_volume, step:0.01 %>
   </div>
   <div>
     <%= f.label :max_volume %>
-    <%= f.number_field :max_volume %>
+    <%= f.number_field :max_volume, step:0.01 %>
   </div>
   <div>
     <%= f.label :min_weight %>
-    <%= f.number_field :min_weight %>
+    <%= f.number_field :min_weight, step:0.01 %>
   </div>
   <div>
     <%= f.label :max_weight %>
-    <%= f.number_field :max_weight %>
+    <%= f.number_field :max_weight, step:0.01 %>
   </div>
   <div>
     <%= f.label :price_km %>
-    <%= f.number_field :price_km %>
+    <%= f.number_field :price_km, step:0.01%>
   </div>
   <div>
     <%= f.submit 'Finalizar Cadastro' %>

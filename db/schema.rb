@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_28_225648) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_29_220140) do
   create_table "carriers", force: :cascade do |t|
     t.string "brand_name"
     t.string "corporate_name"
@@ -30,6 +30,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_28_225648) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["carrier_id"], name: "index_deadlines_on_carrier_id"
+  end
+
+  create_table "price_queries", force: :cascade do |t|
+    t.decimal "height"
+    t.decimal "width"
+    t.decimal "length"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "weight"
+    t.integer "distance"
   end
 
   create_table "prices", force: :cascade do |t|

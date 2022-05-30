@@ -9,5 +9,6 @@ describe 'Usuário visita tela inicial' do
 
     # Assert
     expect(page).to have_content('MaxFrete') 
+    expect(page).to have_link('MaxFrete', href: root_path) 
   end
 end
