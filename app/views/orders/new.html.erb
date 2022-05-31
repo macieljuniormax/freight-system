@@ -1,0 +1,49 @@
+<h1>Nova Faixa de Valores</h1>
+
+<div>
+  <% if @order.errors.any? %>
+    <ul>
+    <% @order.errors.full_messages.each do |mensagem| %>
+      <li> <%= mensagem %>. </li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<%= form_with(model: @order) do |f| %>
+  <div>
+    <%= f.label :pickup_address %>
+    <%= f.text_field :pickup_address %>
+  </div>
+  <div>
+    <%= f.label :delivery_address %>
+    <%= f.text_field :delivery_address %>
+  </div>
+  <div>
+    <%= f.label :height %>
+    <%= f.number_field :height, step:0.01 %>
+  </div>
+  <div>
+    <%= f.label :width %>
+    <%= f.number_field :width, step:0.01 %>
+  </div>
+  <div>
+    <%= f.label :length %>
+    <%= f.number_field :length, step:0.01%>
+  </div>
+  <div>
+    <%= f.label :weight %>
+    <%= f.number_field :weight, step:0.01 %>
+  </div>
+  <div>
+    <%= f.label :receiver_name %>
+    <%= f.text_field :receiver_name %>
+  </div>
+  <div>
+    <%= f.label :carrier_id, 'Transportadora'  %>
+    <%= f.collection_select :carrier_id, @carriers, :id, :brand_name %>
+  </div>
+  <div>
+    <%= f.submit 'Finalizar Cadastro' %>
+  </div>
+<% end %>

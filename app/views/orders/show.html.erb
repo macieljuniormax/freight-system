@@ -1,0 +1,27 @@
+<h1> <%= @order.carrier.brand_name %> - <%= @order.code %> </h1>
+
+<dl>
+  <dt>Endereço de Retirada:</dt>
+  <dd> <%= @order.pickup_address %> </dd>
+  <dt>Endereço do Destinatário:</dt>
+  <dd> <%= @order.delivery_address %> </dd>
+  <dt>Altura:</dt>
+  <dd> <%= @order.height %>m </dd>
+  <dt>Largura:</dt>
+  <dd> <%= @order.width %>m </dd>
+  <dt>Comprimento:</dt>
+  <dd> <%= @order.length %>m </dd>
+  <dt>Peso:</dt>
+  <dd> <%= @order.weight %>Kg </dd>
+  <dt>Nome do Destinatário:</dt>
+  <dd> <%= @order.receiver_name %> </dd>
+  <dt>Status:</dt>
+  <dd> <%= t(@order.status) %> </dd>
+</dl>
+
+<div>
+  <%= link_to 'Voltar', orders_path %>
+</div>
+<div>
+  <%= link_to 'Editar', edit_order_path %>
+</div>

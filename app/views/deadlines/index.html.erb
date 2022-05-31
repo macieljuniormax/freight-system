@@ -10,11 +10,13 @@
     </thead>
     <tbody>
       <% @deadlines.each do |deadline| %>
-        <tr>
-          <td> <%= deadline.min_distance %> a <%= deadline.max_distance %> Km</td>
-          <td> <%= deadline.deadline_days %> dias</td>
-          <td> <%= link_to 'Editar',  edit_deadline_path(deadline.id) %> </td>
-        </tr>
+        <% if deadline.carrier_id == current_user.carrier_id %>
+          <tr>
+            <td> <%= deadline.min_distance %> a <%= deadline.max_distance %> Km</td>
+            <td> <%= deadline.deadline_days %> dias</td>
+            <td> <%= link_to 'Editar',  edit_deadline_path(deadline.id) %> </td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>

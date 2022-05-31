@@ -19,7 +19,7 @@ describe 'Usuário edita um prazo' do
       registration_number: '12.123.123/0001-01', 
       address: 'Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG', 
       email_domain: 'nexttransport.com.br')
-    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@sistemadefrete.com.br', password: 'password')
+    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@nexttransport.com.br', password: 'password')
     Deadline.create!(min_distance: 0, max_distance: 100, deadline_days: 2, carrier: carrier)
 
     # Act
@@ -42,7 +42,7 @@ describe 'Usuário edita um prazo' do
       registration_number: '12.123.123/0001-01', 
       address: 'Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG', 
       email_domain: 'nexttransport.com.br')
-    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@sistemadefrete.com.br', password: 'password')
+    user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@nexttransport.com.br', password: 'password')
     Deadline.create!(min_distance: 0, max_distance: 100, deadline_days: 2, carrier: carrier)
 
     # Act
@@ -64,30 +64,4 @@ describe 'Usuário edita um prazo' do
     deadline = Deadline.last
     expect(deadline.carrier.brand_name).to eq 'Next Transporte'
   end
-
-  # it 'Sem sucesso' do
-  #   # Arrange
-  #   carrier = Carrier.create!(corporate_name: 'Transportes Next LTDA', 
-  #     brand_name: 'Next Transporte', 
-  #     registration_number: '12.123.123/0001-01', 
-  #     address: 'Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG', 
-  #     email_domain: 'nexttransport.com.br')
-  #   user = User.create!(name: 'Maciel Ferreira', email: 'macieljunior@sistemadefrete.com.br', password: 'password')
-
-  #   # Act
-  #   login_as(user)
-  #   visit root_path
-  #   click_on 'Transportadoras'
-  #   click_on 'Next Transporte'
-  #   click_on 'Editar'
-  #   fill_in 'Nome Fantasia', with: ''
-  #   fill_in 'Razão Social', with: 'Transportadoras Next LTDA'
-  #   fill_in 'CNPJ', with: '12.123.123/0001-01'
-  #   fill_in 'Endereço', with: 'Avenida Tiradentes 1500, Jardim São Sebastião, Lavras - MG'
-  #   fill_in 'Domínio de E-mail', with: 'nexttransport.com.br'
-  #   click_on "Finalizar"
-
-  #   # Assert
-  #   expect(page).to have_content('Transportadora não atualizada.')
-  # end
 end

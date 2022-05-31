@@ -2,7 +2,7 @@ class PriceQueriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @price_query_queries = PriceQuery.all
+    @price_queries = PriceQuery.all
   end
 
   def new
@@ -33,6 +33,7 @@ class PriceQueriesController < ApplicationController
     end
 
     PriceQuery.create!(height: @height, width: @width,length: @length,weight: @weight,distance: @distance)
+  
   end
 
   def create

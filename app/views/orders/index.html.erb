@@ -1,0 +1,34 @@
+<h1>Ordens de Serviço</h1>
+
+<% if @orders.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Código de Busca</th>
+        <th>Destinatário</th>
+        <th>Transportadora</th>
+        <th>Status</th>
+      <tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td> <%= order.code %> </td>
+          <td> <%= order.receiver_name %> </td>
+          <td> <%= order.carrier.brand_name %> </td>
+          <td> <%= t(order.status) %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>  
+  <p>Não existem ordens cadastradas.</p>
+<% end %>
+
+<div>
+  <%= link_to 'Voltar', root_path %>
+</div>
+<div>
+  <%= link_to 'Criar Ordem de Serviço', new_order_path %>
+</div>
+

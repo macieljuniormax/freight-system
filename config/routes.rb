@@ -8,4 +8,10 @@ Rails.application.routes.draw do
   resources :price_queries, only: [:index, :new, :create] do
     get 'search', on: :collection
   end
+  resources :orders, only: [:index, :show, :new, :create, :edit, :update] do
+    get 'search', on: :collection
+    post 'approved', on: :member
+    post 'disapproved', on: :member
+    post 'finished', on: :member
+  end
 end

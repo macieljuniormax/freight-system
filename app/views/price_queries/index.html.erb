@@ -3,27 +3,55 @@
 <%= form_with(url: search_price_queries_path, method: :get) do |f| %>
   <div>
     <%= f.label :height, 'Altura' %>
-    <%= f.number_field :height %>
+    <%= f.number_field :height, step:0.01 %>
   </div>
   <div>
     <%= f.label :width, 'Largura' %>
-    <%= f.number_field :width %>
+    <%= f.number_field :width, step:0.01 %>
   </div>
   <div>
     <%= f.label :length, 'Comprimento' %>
-    <%= f.number_field :length %>
+    <%= f.number_field :length, step:0.01 %>
   </div>
   <div>
     <%= f.label :weight, 'Peso' %>
-    <%= f.number_field :weight %>
+    <%= f.number_field :weight, step:0.01 %>
   </div>
   <div>
     <%= f.label :distance, 'Distância' %>
-    <%= f.number_field :distance %>
+    <%= f.number_field :distance, step:0.01 %>
   </div>
            
   <%= f.submit 'Buscar' %>
 <% end %>
 
 <h2>Consultas já realizadas</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Altura</th>
+      <th>Largura</th>
+      <th>Comprimento</th>
+      <th>Peso</th>
+      <th>Distância</th>
+    <tr>
+  </thead>
+  <tbody>
+    <% @price_queries.each do |price_query| %>
+      <tr>
+        <td> <%= price_query.height %>m</td>
+        <td> <%= price_query.width %>m</td>
+        <td> <%= price_query.length %>m</td>
+        <td> <%= price_query.weight %>Kg</td>
+        <td>R$ <%= price_query.distance%>Km</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+ 
+     
 
